@@ -1,12 +1,12 @@
 Name:           pngquant
 Version:        2.12.5
-Release:        2
+Release:        3
 Summary:        PNG quantitative tool for reducing the size of the image file
 License:        GPLv3+
 URL:            http://pngquant.org
 Source0:        https://github.com/pornel/pngquant/archive/%{version}/pngquant-%{version}.tar.gz
 
-BuildRequires:  libpng-devel >= 1.2.46-1 zlib-devel >= 1.2.3-1 lcms2-devel libimagequant-devel >= %{version}
+BuildRequires:  libpng-devel >= 1.2.46-1 zlib-devel >= 1.2.3-1 lcms2-devel libimagequant-devel >= %{version} gcc
 Requires:       libpng >= 1.2.46-1 zlib >= 1.2.3-1 libimagequant >= %{version}
 
 %description
@@ -42,6 +42,9 @@ export CFLAGS="%{optflags} -fno-math-errno -funroll-loops -fomit-frame-pointer -
 %{_mandir}/man1/%{name}.1*
 
 %changelog
+* Mon May 31 2021 huanghaitao <huanghaitao8@huawei.com> - 2.12.5-3
+- Completing build dependencies
+
 * Fri Dec 13 2019 fengbing <fengbing7@huawei.com> - 2.12.5-2
 - Package init
 
