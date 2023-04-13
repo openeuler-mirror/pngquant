@@ -1,6 +1,6 @@
 Name:           pngquant
-Version:        2.12.5
-Release:        3
+Version:        2.18.0
+Release:        1
 Summary:        PNG quantitative tool for reducing the size of the image file
 License:        GPLv3+
 URL:            http://pngquant.org
@@ -42,6 +42,9 @@ export CFLAGS="%{optflags} -fno-math-errno -funroll-loops -fomit-frame-pointer -
 %{_mandir}/man1/%{name}.1*
 
 %changelog
+* Wed Apr 12 2023 liyanan <thistleslyn@163.com> - 2.18.0-1
+- Update to 2.18.0
+
 * Mon May 31 2021 huanghaitao <huanghaitao8@huawei.com> - 2.12.5-3
 - Completing build dependencies
 
