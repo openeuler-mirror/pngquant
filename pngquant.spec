@@ -1,6 +1,6 @@
 Name:           pngquant
 Version:        2.12.5
-Release:        3
+Release:        4
 Summary:        PNG quantitative tool for reducing the size of the image file
 License:        GPLv3+
 URL:            http://pngquant.org
@@ -25,7 +25,11 @@ This package provides documentation for pngquant.
 
 %build
 export CFLAGS="%{optflags} -fno-math-errno -funroll-loops -fomit-frame-pointer -fPIC"
+%if "%toolchain" == "clang"
+%configure --with-libimagequant
+%else
 %configure --with-openmp --with-libimagequant
+%endif
 %make_build
 
 %install
@@ -42,6 +46,9 @@ export CFLAGS="%{optflags} -fno-math-errno -funroll-loops -fomit-frame-pointer -
 %{_mandir}/man1/%{name}.1*
 
 %changelog
+* Mon Jun 12 2023 Xiaoya Huang <huangxiaoya@iscas.ac.an> - 2.12.5-4
+- Add conditionals for the OpenMP option that the Clang compiler may not support
+
 * Mon May 31 2021 huanghaitao <huanghaitao8@huawei.com> - 2.12.5-3
 - Completing build dependencies
 
